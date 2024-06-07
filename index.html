@@ -88,16 +88,19 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h1>GROCERY LIST MAKER</h1>
+<!DOCTYPE html><html><head><style>h1{font-family: 'Yu Gothic',cursive;}</style></head><body><h1>GROCERY LIST MAKER</h1></body></html>
+<br>
             <form>
-                <label for="dataInput">Please enter the product you want to buy:</label><br>
+                <label for="dataInput">Please Enter a Product:</label><br>
+<br>
                 <input type="text" id="dataInput" name="dataInput"><br>
-                <button type="button" onclick="saveData()">ENTER PRODUCT</button>
+<br>
+                <button type="button" onclick="saveData()">Confirm</button>
             </form>
         </div>
 
         <div id="displayData">
-            <h2>Your Shopping list:</h2>
+            <h4>Your Shopping list:</h4>
             <ul id="dataList"></ul>
         </div>
 
@@ -105,19 +108,35 @@
         <div style="text-align: right;">
         <button type="button" onclick="shareToSocialMedia()">SHARE</button>
         <button type="button" onclick="saveAsTxt()">DOWNLOAD</button><br>
+        </div>
         <div class="author-info">
-            <center><p>This System is created by "Jm Escalante", an information technology student.</p></center>
+<br>
+            <center><h4>TAKE NOTE:</h4></center>
+            <center><h5>This system help us manage and list the quantities of items we are purchasing, preventing overspending in the store, This System is created by "Jm Escalante", an information technology student.</h5></center>
         </div>
     </div>
 
     <script>
-        function saveData() {
-            var inputData = document.getElementById("dataInput").value;
-            var newItem = document.createElement("li");
-            newItem.textContent = inputData;
-            document.getElementById("dataList").appendChild(newItem);
-            document.getElementById("dataInput").value = "";
-        }
+ var itemCount = 0;
+
+function saveData() {
+    var inputData = document.getElementById("dataInput").value;
+    itemCount++;
+    var newItem = document.createElement("li");
+    newItem.innerHTML = "<strong>" + pad(itemCount, 2) + "</strong> - " + inputData;
+    document.getElementById("dataList").appendChild(newItem);
+    document.getElementById("dataInput").value = "";
+}
+
+function pad(number, length) {
+    var str = '' + number;
+    while (str.length < length) {
+        str = '0' + str;
+    }
+    return str;
+}
+
+
 
         function saveAsTxt() {
             var dataList = document.getElementById("dataList").getElementsByTagName("li");
