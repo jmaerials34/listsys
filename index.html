@@ -121,14 +121,24 @@
         }
 
         function shareToSocialMedia() {
-            var dataList = document.getElementById("dataList").getElementsByTagName("li");
-            var textContent = "";
-            for (var i = 0; i < dataList.length; i++) {
-                textContent += dataList[i].textContent + "\n";
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                // Get the content to share
+                var dataList = document.getElementById("dataList").getElementsByTagName("li");
+                var textContent = "";
+                for (var i = 0; i < dataList.length; i++) {
+                    textContent += dataList[i].textContent + "\n";
+                }
+                // Share the content
+                navigator.share({
+                    title: 'My List',
+                    text: textContent,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                alert("Web Share API is not supported in this browser.");
             }
-            // You can implement sharing to social media platforms here
-            // For simplicity, let's just log the content to the console
-            console.log("Sharing list to social media:\n" + textContent);
         }
     </script>
 </body>
