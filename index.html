@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<form onsubmit="return false;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Down System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('jm.jpg'); /* Replace 'your_image_url.jpg' with the URL of your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
 
-        .form-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        input[type="text"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-right: 10px;
-        }
-        
-        button:hover {
-            background-color: #45a049;
-        }
-        
-        #displayData {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        h2, h3 {
-            color: #333333;
-        }
-        
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        li {
-            background-color: #f9f9f9;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-        }
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8); /* Add opacity to make content readable */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    #displayData {
+        background-color: rgba(255, 255, 255, 0.8); /* Add opacity to make content readable */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2, h3 {
+        color: #333333;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+    }
 
-        .author-info {
-            margin-top: 20px;
-            font-style: italic;
-            color: #666666;
-        }
-    </style>
+    .author-info {
+        margin-top: 20px;
+        font-style: italic;
+        color: #666666;
+    }
+</style>
+
+
 </head>
 <body>
     <div class="container">
         <div class="form-container">
-<!DOCTYPE html><html><head><style>h1{font-family: 'arial',cursive;}</style></head><body><h1>GROCERY LIST MAKER</h1></body></html>
-<br>
+            <h1>GROCERY LIST MAKER</h1>
+            <br>
             <form>
                 <label for="dataInput">Please Enter a Product:</label><br>
-<br>
                 <input type="text" id="dataInput" name="dataInput"><br>
-<br>
                 <button type="button" onclick="saveData()">Confirm</button>
             </form>
         </div>
@@ -105,38 +107,37 @@
         </div>
 
         <div class="author-info">
-        <div style="text-align: right;">
-        <button type="button" onclick="shareToSocialMedia()">SHARE</button>
-        <button type="button" onclick="saveAsTxt()">DOWNLOAD</button><br>
-        </div>
-        <div class="author-info">
-<br>
-            <center><h4>TAKE NOTE:</h4></center>
-            <center><h5>This system help us manage and list the quantities of items we are purchasing, preventing overspending in the store, This System is created by "Jm Escalante", an information technology student.</h5></center>
+            <div style="text-align: right;">
+                <button type="button" onclick="shareToSocialMedia()">SHARE</button>
+                <button type="button" onclick="saveAsTxt()">DOWNLOAD</button><br>
+            </div>
+            <div class="author-info">
+                <br>
+                <center><h4>TAKE NOTE:</h4></center>
+                <center><h5>This system helps us manage and list the quantities of items we are purchasing, preventing overspending in the store. This System is created by "Jm Escalante", an information technology student.</h5></center>
+            </div>
         </div>
     </div>
 
     <script>
- var itemCount = 0;
+        var itemCount = 0;
 
-function saveData() {
-    var inputData = document.getElementById("dataInput").value;
-    itemCount++;
-    var newItem = document.createElement("li");
-    newItem.innerHTML = "<strong>" + pad(itemCount, 2) + "</strong> - " + inputData;
-    document.getElementById("dataList").appendChild(newItem);
-    document.getElementById("dataInput").value = "";
-}
+        function saveData() {
+            var inputData = document.getElementById("dataInput").value;
+            itemCount++;
+            var newItem = document.createElement("li");
+            newItem.innerHTML = "<strong>" + pad(itemCount, 2) + "</strong> - " + inputData;
+            document.getElementById("dataList").appendChild(newItem);
+            document.getElementById("dataInput").value = "";
+        }
 
-function pad(number, length) {
-    var str = '' + number;
-    while (str.length < length) {
-        str = '0' + str;
-    }
-    return str;
-}
-
-
+        function pad(number, length) {
+            var str = '' + number;
+            while (str.length < length) {
+                str = '0' + str;
+            }
+            return str;
+        }
 
         function saveAsTxt() {
             var dataList = document.getElementById("dataList").getElementsByTagName("li");
