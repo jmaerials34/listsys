@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Down System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #displayData {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2, h3 {
+            color: #333333;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>List Down System</h2>
+            <form>
+                <label for="dataInput">Enter List:</label><br>
+                <input type="text" id="dataInput" name="dataInput"><br>
+                <button type="button" onclick="saveData()">List Below</button>
+                <button type="button" onclick="saveAsTxt()">Finish</button>
+            </form>
+        </div>
+
+        <div id="displayData">
+            <h3>Your List:</h3>
+            <ul id="dataList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function saveData() {
+            var inputData = document.getElementById("dataInput").value;
+            var newItem = document.createElement("li");
+            newItem.textContent = inputData;
+            document.getElementById("dataList").appendChild(newItem);
+            document.getElementById("dataInput").value = "";
+        }
+
+        function saveAsTxt() {
+            var dataList = document.getElementById("dataList").getElementsByTagName("li");
+            var textContent = "";
+            for (var i = 0; i < dataList.length; i++) {
+                textContent += dataList[i].textContent + "\n";
+            }
+            var blob = new Blob([textContent], { type: "text/plain" });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'list.txt';
+            link.click();
+        }
+    </script>
+</body>
+</html>
