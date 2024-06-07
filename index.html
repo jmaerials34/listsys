@@ -88,6 +88,7 @@
                 <input type="text" id="dataInput" name="dataInput"><br>
                 <button type="button" onclick="saveData()">List Below</button>
                 <button type="button" onclick="saveAsTxt()">Finish</button>
+                <button type="button" onclick="shareToSocialMedia()">Share</button>
             </form>
         </div>
 
@@ -117,6 +118,17 @@
             link.href = URL.createObjectURL(blob);
             link.download = 'list.txt';
             link.click();
+        }
+
+        function shareToSocialMedia() {
+            var dataList = document.getElementById("dataList").getElementsByTagName("li");
+            var textContent = "";
+            for (var i = 0; i < dataList.length; i++) {
+                textContent += dataList[i].textContent + "\n";
+            }
+            // You can implement sharing to social media platforms here
+            // For simplicity, let's just log the content to the console
+            console.log("Sharing list to social media:\n" + textContent);
         }
     </script>
 </body>
